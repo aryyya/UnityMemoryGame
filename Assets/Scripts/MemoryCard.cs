@@ -6,10 +6,20 @@ public class MemoryCard : MonoBehaviour
 {
     [SerializeField] private GameObject _cardBack;
     [SerializeField] private Sprite _image;
+    [SerializeField] private SceneController _sceneController;
+
+    private int _id;
+    public int id
+    {
+        get
+        {
+            return _id;
+        }
+    }
 
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = _image;
+       // GetComponent<SpriteRenderer>().sprite = _image;
     }
 
     void Update()
@@ -22,5 +32,11 @@ public class MemoryCard : MonoBehaviour
         {
             _cardBack.SetActive(false);
         }
+    }
+
+    public void SetCard(int id, Sprite image)
+    {
+        _id = id;
+        GetComponent<SpriteRenderer>().sprite = image;
     }
 }

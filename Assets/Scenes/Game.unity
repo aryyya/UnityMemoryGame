@@ -122,8 +122,10 @@ GameObject:
   m_Component:
   - component: {fileID: 212715491}
   - component: {fileID: 212715490}
+  - component: {fileID: 212715493}
+  - component: {fileID: 212715492}
   m_Layer: 0
-  m_Name: TonySoprano
+  m_Name: CardFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 68543dd3d29a15b409f51bf065ed3686, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +174,7 @@ SpriteRenderer:
   m_Size: {x: 1.45, y: 1.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &212715491
@@ -189,6 +191,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212715492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212715489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a243bb0b39a03784aa200928f4a8e07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardBack: {fileID: 722014763}
+  _image: {fileID: 0}
+  _sceneController: {fileID: 1508723215}
+--- !u!61 &212715493
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212715489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.45, y: 1.55}
+    newSize: {x: 1.45, y: 1.55}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.45, y: 1.55}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,8 +391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 722014764}
   - component: {fileID: 722014766}
-  - component: {fileID: 722014765}
-  - component: {fileID: 722014767}
   m_Layer: 0
   m_Name: CardBack
   m_TagString: Untagged
@@ -372,31 +411,6 @@ Transform:
   m_Father: {fileID: 212715491}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &722014765
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 722014763}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.45, y: 1.55}
-    newSize: {x: 1.45, y: 1.55}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.45, y: 1.55}
-  m_EdgeRadius: 0
 --- !u!212 &722014766
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -443,15 +457,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &722014767
+--- !u!1 &1508723214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508723216}
+  - component: {fileID: 1508723215}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1508723215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 722014763}
+  m_GameObject: {fileID: 1508723214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a243bb0b39a03784aa200928f4a8e07c, type: 3}
+  m_Script: {fileID: 11500000, guid: c07ae0d2b4cd2db4d89c9feaa24db266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardBack: {fileID: 722014763}
+  _originalCard: {fileID: 212715492}
+  _images:
+  - {fileID: 21300000, guid: 9520575f78bc43c458a4bca832cb3c15, type: 3}
+  - {fileID: 21300000, guid: 60e9d85453a87924ba423bd999178886, type: 3}
+  - {fileID: 21300000, guid: b3556746292feb74b827dd1c1c9c5254, type: 3}
+  - {fileID: 21300000, guid: f0359c2fb9537d7409a0fcccc78b6095, type: 3}
+  - {fileID: 21300000, guid: 5850ed5cdd211d247896f00453c1195f, type: 3}
+  - {fileID: 21300000, guid: 4d55f0f655ec52a43bf73601bcd20afb, type: 3}
+  - {fileID: 21300000, guid: 9171f7ecae0d72e448b34b9609ab9b49, type: 3}
+  - {fileID: 21300000, guid: 4e5be4b7eb529824d9bdb8d971a06ae1, type: 3}
+--- !u!4 &1508723216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508723214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.27, y: 3.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
