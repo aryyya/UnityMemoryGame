@@ -16,6 +16,9 @@ public class MemoryCard : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("Memory card clicked.");
+        if (_cardBack.activeSelf)
+        {
+            _cardBack.SetActive(false);
+        }
     }
 }
