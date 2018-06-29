@@ -31,6 +31,7 @@ public class MemoryCard : MonoBehaviour
         if (_cardBack.activeSelf)
         {
             _cardBack.SetActive(false);
+            _sceneController.ShowName(Utility.GetNameWithSpace(GetComponent<SpriteRenderer>().sprite.name));
         }
     }
 

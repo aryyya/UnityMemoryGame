@@ -28,4 +28,19 @@ public class Utility
         }
         return output + " }";
     }
+
+    public static string GetNameWithSpace(string name)
+    {
+        string nameWithSpace = "";
+        for (int i = 0; i < name.Length; i++)
+        {
+            char character = name[i];
+            if (char.IsUpper(character) && i != 0)
+            {
+                nameWithSpace += " ";
+            }
+            nameWithSpace += character;
+        }
+        return nameWithSpace;
+    }
 }

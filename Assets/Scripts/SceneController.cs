@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private MemoryCard _originalCard;
     [SerializeField] private Sprite[] _images;
+    [SerializeField] private Text _characterSelected;
 
     public const int gridRows = 4;
     public const int gridColumns = 10;
@@ -14,12 +16,7 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         List<int> idPairs = GetIdPairs(_images.Length);
-
-        Debug.Log(Utility.ToString(idPairs));
-
         Utility.Shuffle(idPairs);
-
-        Debug.Log(Utility.ToString(idPairs));
 
         Vector3 startingPosition = _originalCard.transform.position;
 
@@ -63,5 +60,10 @@ public class SceneController : MonoBehaviour
             }
         }
         return idPairs;
+    }
+
+    public void ShowName(string name)
+    {
+        _characterSelected.text = name;
     }
 }
