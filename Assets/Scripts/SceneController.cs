@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneController : MonoBehaviour
@@ -7,13 +6,21 @@ public class SceneController : MonoBehaviour
     [SerializeField] private MemoryCard _originalCard;
     [SerializeField] private Sprite[] _images;
 
-    public const int gridRows = 2;
-    public const int gridColumns = 4;
-    public const float offsetX = 2.0f;
-    public const float offsetY = 2.5f;
+    public const int gridRows = 4;
+    public const int gridColumns = 10;
+    public const float offsetX = 1.9f;
+    public const float offsetY = 2.0f;
 
     void Start()
     {
+        List<int> idPairs = GetIdPairs(_images.Length);
+
+        Debug.Log(Utility.ToString(idPairs));
+
+        Utility.Shuffle(idPairs);
+
+        Debug.Log(Utility.ToString(idPairs));
+
         Vector3 startingPosition = _originalCard.transform.position;
 
         for (int i = 0; i < gridColumns; i++)
@@ -30,7 +37,8 @@ public class SceneController : MonoBehaviour
                     card = Instantiate(_originalCard) as MemoryCard;
                 }
 
-                int id = Random.Range(0, _images.Length);
+                int index = j * gridColumns + i;
+                int id = idPairs[index];
                 card.SetCard(id, _images[id]);
 
                 float positionX = (offsetX * i) + startingPosition.x;
@@ -42,5 +50,18 @@ public class SceneController : MonoBehaviour
 
     void Update()
     {
+    }
+
+    private List<int> GetIdPairs(int length)
+    {
+        List<int> idPairs = new List<int>();
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                idPairs.Add(i);
+            }
+        }
+        return idPairs;
     }
 }
