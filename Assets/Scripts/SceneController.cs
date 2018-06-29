@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,18 @@ public class SceneController : MonoBehaviour
     [SerializeField] private MemoryCard _originalCard;
     [SerializeField] private Sprite[] _images;
     [SerializeField] private Text _characterSelected;
+    [SerializeField] private float _revealLength = 1.0f;
+
+    private MemoryCard _firstRevealed;
+    private MemoryCard _secondRevealed;
+
+    public bool canReveal
+    {
+        get
+        {
+            return _secondRevealed == null;
+        }
+    }
 
     public const int gridRows = 4;
     public const int gridColumns = 10;
@@ -65,5 +78,34 @@ public class SceneController : MonoBehaviour
     public void ShowName(string name)
     {
         _characterSelected.text = name;
+    }
+
+    public void CardRevealed(MemoryCard card)
+    {
+        if (_firstRevealed == null)
+        {
+            _firstRevealed = card;
+        }
+        else
+        {
+            _secondRevealed = card;
+            StartCoroutine(CheckMatch());
+        }
+    }
+
+    private IEnumerator CheckMatch()
+    {
+        if (_firstRevealed.id == _secondRevealed.id)
+        {
+
+        }
+        else
+        {
+            yield return new WaitForSeconds(_revealLength);
+            _firstRevealed.Unreveal();
+            _secondRevealed.Unreveal();
+        }
+        _firstRevealed = null;
+        _secondRevealed = null;
     }
 }

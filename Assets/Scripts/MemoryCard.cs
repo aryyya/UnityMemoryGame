@@ -28,11 +28,18 @@ public class MemoryCard : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (_cardBack.activeSelf)
+        if (_cardBack.activeSelf && _sceneController.canReveal)
         {
             _cardBack.SetActive(false);
             _sceneController.ShowName(Utility.GetNameWithSpace(GetComponent<SpriteRenderer>().sprite.name));
+            _sceneController.CardRevealed(this);
         }
+    }
+
+    public void Unreveal()
+    {
+        _cardBack.SetActive(true);
+        _sceneController.ShowName("");
     }
 
     public void SetCard(int id, Sprite image)
