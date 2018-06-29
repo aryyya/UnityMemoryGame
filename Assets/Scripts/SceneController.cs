@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private MemoryCard _originalCard;
     [SerializeField] private Sprite[] _images;
-    [SerializeField] private Text _characterSelected;
+    [SerializeField] private TextMesh _characterSelectedText;
     [SerializeField] private float _revealLength = 1.0f;
 
     private MemoryCard _firstRevealed;
@@ -77,7 +77,7 @@ public class SceneController : MonoBehaviour
 
     public void ShowName(string name)
     {
-        _characterSelected.text = name;
+        _characterSelectedText.text = name;
     }
 
     public void CardRevealed(MemoryCard card)
