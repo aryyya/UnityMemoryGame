@@ -9,8 +9,10 @@ public class SceneController : MonoBehaviour
     [SerializeField] private MemoryCard _originalCard;
     [SerializeField] private Sprite[] _images;
     [SerializeField] private TextMesh _characterSelectedText;
+    [SerializeField] private TextMesh _flipCountText;
     [SerializeField] private float _revealLength = 1.0f;
 
+    private int _flipCount = 0;
     private MemoryCard _firstRevealed;
     private MemoryCard _secondRevealed;
 
@@ -105,6 +107,9 @@ public class SceneController : MonoBehaviour
             yield return new WaitForSeconds(_revealLength);
             _firstRevealed.Unreveal();
             _secondRevealed.Unreveal();
+
+            _flipCount++;
+            _flipCountText.text = "Wrong flips: " + _flipCount;
         }
         _firstRevealed = null;
         _secondRevealed = null;
